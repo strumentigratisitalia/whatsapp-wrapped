@@ -1,0 +1,13 @@
+# WhatsApp Wrapped
+
+> Strumento gratuito in italiano che calcola le statistiche di una chat WhatsApp (individuale o di gruppo) a partire dal file esportato (.txt o .zip). Tutto avviene nel browser: nessun dato viene inviato a un server, nessun cookie, nessuna registrazione. Mostra totale messaggi e giorni, classifica di chi scrive di più, ora e giorno di punta, mese più attivo e giorno record, emoji e parole più usate, tempo di risposta, e assegna premi (la voce del gruppo, il nottambulo, il re dei vocali, il telegrafico, risposta lampo, ecc.) con immagini da condividere. Si possono nascondere i nomi.
+
+## Pagine
+- [Analizza la chat](https://strumentigratisitalia.github.io/whatsapp-wrapped/): lo strumento, con FAQ
+- [Come esportare la chat](https://strumentigratisitalia.github.io/whatsapp-wrapped/come-esportare/): passaggi per iPhone e Android
+- [Privacy](https://strumentigratisitalia.github.io/whatsapp-wrapped/privacy/)
+
+## Fatti
+- Supporta i formati di esportazione Android e iPhone, in italiano e in inglese, date giorno/mese e mese/giorno, orari a 12 e 24 ore.
+- WhatsApp esporta al massimo 40.000 messaggi senza media.
+- Non affiliato a WhatsApp o Meta.
