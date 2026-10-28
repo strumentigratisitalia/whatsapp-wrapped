@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WhatsApp Wrapped: le statistiche della tua chat di gruppo</title>
+<meta name="description" content="Carica l'esportazione di una chat WhatsApp e scopri chi scrive di più, l'ora di punta, le emoji preferite e i premi del gruppo. Gratis, in italiano, tutto nel browser: nessun dato viene inviato.">
+<link rel="canonical" href="https://strumentigratisitalia.github.io/whatsapp-wrapped/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="WhatsApp Wrapped: le statistiche della tua chat di gruppo">
+<meta property="og:description" content="Chi scrive di più? Chi risponde dopo tre ore? Carica la chat e scoprilo. Gratis e senza inviare niente a nessuno.">
+<meta property="og:url" content="https://strumentigratisitalia.github.io/whatsapp-wrapped/">
+<meta property="og:image" content="https://strumentigratisitalia.github.io/whatsapp-wrapped/og.png">
+<meta property="og:locale" content="it_IT">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1b1038">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebApplication","name":"WhatsApp Wrapped","url":"https://strumentigratisitalia.github.io/whatsapp-wrapped/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","inLanguage":"it","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"description":"Statistiche e premi di una chat WhatsApp a partire dal file esportato, calcolati nel browser senza inviare dati."},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"I miei messaggi vengono inviati da qualche parte?","acceptedAnswer":{"@type":"Answer","text":"No. Il file viene letto dal browser sul tuo dispositivo e le statistiche sono calcolate lì. Il sito non ha un server che riceve dati, non usa cookie e non chiede registrazioni."}},
+{"@type":"Question","name":"Come esporto una chat WhatsApp?","acceptedAnswer":{"@type":"Answer","text":"Apri la chat, tocca il nome del gruppo o i tre puntini, scegli Altro, poi Esporta chat e Senza file multimediali. Salva il file .txt o .zip e caricalo qui. La guida completa per iPhone e Android è nella pagina Come esportare la chat."}},
+{"@type":"Question","name":"Funziona anche con le chat a due?","acceptedAnswer":{"@type":"Answer","text":"Sì. Con due persone vedi comunque classifica, orari, emoji, parole e i premi; con i gruppi numerosi i premi diventano più divertenti."}},
+{"@type":"Question","name":"Posso nascondere i nomi prima di condividere?","acceptedAnswer":{"@type":"Answer","text":"Sì, c'è un interruttore che sostituisce i nomi con Persona 1, Persona 2 e così via, anche nelle immagini da scaricare."}}
+]}]}
+</script>
+<script data-goatcounter="https://strumentigratisitalia.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+<header class="cont testata">
+  <a class="marchio" href="./"><span class="bolla" aria-hidden="true"></span>WhatsApp Wrapped</a>
+  <nav aria-label="Pagine">
+    <a href="come-esportare/">Come esportare la chat</a>
+    <a href="privacy/">Privacy</a>
+  </nav>
+</header>
+
+<main>
+  <section class="cont hero">
+    <h1>La vostra chat di gruppo, raccontata in numeri.</h1>
+    <p class="sotto">Chi scrive di più, chi risponde dopo tre ore, chi manda solo vocali. Carica il file esportato da WhatsApp e lo scopri in un secondo. <strong>Niente esce dal tuo telefono.</strong></p>
+
+    <div class="stretto">
+      <div class="zona" id="zona">
+        <input type="file" id="file" accept=".txt,.zip,text/plain,application/zip" aria-label="Carica il file della chat esportata da WhatsApp (.txt o .zip)">
+        <span class="grande">Trascina qui il file della chat</span>
+        <span class="piccolo">.txt o .zip, esportato da WhatsApp senza file multimediali</span>
+        <span class="btn" aria-hidden="true">Scegli il file</span>
+      </div>
+      <p class="demo">Non hai il file sottomano? <button type="button" id="demo">Prova con una chat di esempio</button></p>
+      <p class="stato" id="stato" aria-live="polite"></p>
+      <div class="errore" id="errore" role="alert"></div>
+      <p class="riga-privacy"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2 3 5v5c0 4.2 3 7.4 7 8 4-.6 7-3.8 7-8V5l-7-3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="m7 10 2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Il file resta nel browser: non c'è un server che lo riceve, niente account, niente cookie. Puoi anche staccare internet prima di caricarlo. <a href="privacy/">Come funziona</a>.</span></p>
+    </div>
+  </section>
+
+  <div id="risultati" aria-live="polite">
+    <div class="barra">
+      <div class="cont">
+        <span class="nome-chat" id="nomeChat"></span>
+        <label class="interruttore"><input type="checkbox" id="anonimo"> Nascondi i nomi</label>
+      </div>
+    </div>
+    <div id="slides"></div>
+  </div>
+
+  <section class="cont passi" id="come-funziona">
+    <h2>Come funziona</h2>
+    <ol>
+      <li><strong>Esporta la chat da WhatsApp</strong><p>Dalle impostazioni della chat scegli "Esporta chat", senza file multimediali. Ci vuole mezzo minuto: <a href="come-esportare/">ecco i passaggi per iPhone e Android</a>.</p></li>
+      <li><strong>Carica il file qui</strong><p>Va bene sia il .txt sia lo .zip. Il browser lo legge sul tuo dispositivo e calcola tutto in locale.</p></li>
+      <li><strong>Manda i risultati al gruppo</strong><p>Ogni premio e il riepilogo diventano un'immagine da scaricare e condividere. Puoi nascondere i nomi con un tocco.</p></li>
+    </ol>
+  </section>
+
+  <section class="cont sezione">
+    <h2>Cosa scopri</h2>
+    <p>Quanti messaggi avete scritto e in quanti giorni, chi parla di più e con che percentuale, l'ora e il giorno della settimana in cui la chat si accende, il mese più caldo e il giorno record, le emoji e le parole che tornano più spesso, quanto ci mette ciascuno a rispondere.</p>
+    <p>E poi i premi: la voce del gruppo, il nottambulo, il re dei vocali, il telegrafico, chi apre le danze dopo ore di silenzio, chi risponde in un lampo e chi con tutta calma. Ognuno ha la sua immagine da mandare in chat.</p>
+  </section>
+
+  <section class="cont sezione faq" id="faq">
+    <h2>Domande frequenti</h2>
+    <details><summary>I miei messaggi vengono inviati da qualche parte?</summary><p>No. Il file viene letto dal browser sul tuo dispositivo e le statistiche sono calcolate lì. Il sito non ha un server che riceve dati, non usa cookie e non chiede registrazioni. Se vuoi una prova, carica il file con la connessione spenta: funziona lo stesso.</p></details>
+    <details><summary>Come esporto una chat WhatsApp?</summary><p>Apri la chat, tocca il nome del gruppo (iPhone) o i tre puntini (Android), scegli "Altro" e poi "Esporta chat", infine "Senza file multimediali". Salva il file e caricalo qui. <a href="come-esportare/">Guida completa con tutti i passaggi</a>.</p></details>
+    <details><summary>Funziona anche con le chat a due?</summary><p>Sì. Con due persone vedi comunque classifica, orari, emoji, parole e i premi. Con i gruppi numerosi i premi diventano più divertenti.</p></details>
+    <details><summary>Posso nascondere i nomi prima di condividere?</summary><p>Sì. L'interruttore "Nascondi i nomi" sostituisce i nomi con Persona 1, Persona 2 e così via, anche nelle immagini da scaricare.</p></details>
+    <details><summary>Le date o i nomi sono sbagliati</summary><p>WhatsApp esporta le date nel formato del telefono. Il sito riconosce da solo giorno/mese e mese/giorno, orari a 12 e 24 ore, formato iPhone e Android, italiano e inglese. Se qualcosa non torna, controlla che il file sia quello originale e non una copia modificata.</p></details>
+    <details><summary>È un servizio di WhatsApp?</summary><p>No. È uno strumento indipendente e gratuito, non collegato a WhatsApp o a Meta. Il nome WhatsApp è un marchio dei rispettivi proprietari.</p></details>
+  </section>
+</main>
+
+<footer class="cont piede">
+  <nav aria-label="Note legali"><a href="come-esportare/">Come esportare la chat</a><a href="privacy/">Privacy</a></nav>
+  <p>WhatsApp Wrapped è uno strumento gratuito e indipendente, non affiliato a WhatsApp né a Meta. Le statistiche sono calcolate nel tuo browser e non vengono salvate da nessuna parte.</p>
+</footer>
+
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="parser.js"></script>
+<script src="stats.js"></script>
+<script src="demo.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
