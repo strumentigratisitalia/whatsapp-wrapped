@@ -63,7 +63,6 @@
     valori.forEach(function (v, i) {
       var b = el('div', 'b' + (i === iMax ? ' top' : ''));
       b.style.height = Math.max(2, v / max * 100) + '%';
-      b.tabIndex = 0;
       b.appendChild(el('span', 'tip', esc(tipLabel(i)) + ': ' + n(v)));
       g.appendChild(b);
     });

@@ -132,10 +132,10 @@ a:hover { color: var(--viola); }
 .grafico { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 3px; align-items: end; height: 150px; }
 .grafico .b { background: currentColor; opacity: .35; border-radius: 4px 4px 0 0; min-height: 2px; position: relative; }
 .grafico .b.top { opacity: 1; }
-.grafico .b:hover, .grafico .b:focus { opacity: .8; outline: none; }
+.grafico .b:hover { opacity: .8; }
 .grafico .b.top:hover { opacity: 1; }
 .grafico .b .tip { position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); background: var(--notte); color: var(--panna); font-size: .8rem; padding: 4px 8px; border-radius: 8px; white-space: nowrap; display: none; z-index: 2; margin-bottom: 4px; }
-.grafico .b:hover .tip, .grafico .b:focus .tip { display: block; }
+.grafico .b:hover .tip { display: block; }
 .assi { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 3px; font-size: .78rem; opacity: .8; margin-top: 6px; }
 .assi span { text-align: center; overflow: hidden; white-space: nowrap; }
 .tabella-dati { margin-top: 14px; font-size: .9rem; }
